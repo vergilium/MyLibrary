@@ -14,6 +14,7 @@ namespace MyLibrary.Entities
     {
         [Column("name")]
         [StringLength(64)]
+        [Index("IX_UniqueKeyInt", IsUnique = true, Order = 1)]
         public string Name { get; set; }
         public List<Employee> Employees { get; set;}
     }

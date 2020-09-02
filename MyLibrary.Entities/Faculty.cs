@@ -13,6 +13,7 @@ namespace MyLibrary.Entities
        
         [StringLength(64)]
         [Column("facultyName")]
+        [Index("IX_UniqueKeyInt", IsUnique = true, Order = 1)]
         public string Name { get; set; }
         public List<Group> Groups { get; set; }
     }

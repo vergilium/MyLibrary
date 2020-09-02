@@ -38,6 +38,7 @@ namespace MyLibrary.BLL
                     LastName = ba.Author.LastName
                 }).ToList();
         }
+
         public static implicit operator BookVM(BookModel model)
         {
             return new BookVM

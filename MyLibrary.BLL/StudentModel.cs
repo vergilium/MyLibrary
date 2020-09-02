@@ -30,8 +30,8 @@ namespace MyLibrary.BLL
         {
             return new StudentVM { 
                 FirstName = model.FirstName,
-                LastName =model.LastName,
-                GroupName=model.GroupName
+                LastName = model.LastName,
+                GroupName = model.GroupName
             };
         }
 

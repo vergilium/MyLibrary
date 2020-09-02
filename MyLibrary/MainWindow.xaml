@@ -5,8 +5,48 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MyLibrary"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="800" Width="1024">
+    <Window.Resources>
+        <ResourceDictionary Source="IconsResource.xaml"/>
+    </Window.Resources>
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25px"></RowDefinition>
+            <RowDefinition Height="48px"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="16px"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.25*"/>
+                <ColumnDefinition Width="5px"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <GridSplitter VerticalAlignment="Stretch" Width="5" Grid.Column="1" ShowsPreview="False"/>
+        </Grid>
+        <Menu VerticalAlignment="Top" Background="LightCyan" Grid.Row="0" Height="25">
+            <MenuItem Header="File">
+                <MenuItem Header="Exit"/>
+            </MenuItem>
+            <MenuItem Header="View"></MenuItem>
+            <MenuItem Header="Books"></MenuItem>
+            <MenuItem Header="Tools"></MenuItem>
+            <MenuItem Header="Help"></MenuItem>
+        </Menu>
+
+        <ToolBarPanel Grid.Row="1">
+            <ToolBarTray Height="48" Width="Auto">
+                <ToolBar HorizontalAlignment="Left" Height="48" VerticalAlignment="Stretch" Width="200">
+                    <ToggleButton Height="48" Width="48">
+                        <Image Source="bookmark.png"/>
+                    </ToggleButton>
+                </ToolBar>
+            </ToolBarTray>
+
+        </ToolBarPanel>
+
+
+
 
     </Grid>
 </Window>

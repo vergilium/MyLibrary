@@ -20,4 +20,10 @@
     <ProjectReference Include="..\MyLibrary.ViewModels\MyLibrary.ViewModels.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Media\icon\" />
+    <Folder Include="Properties\" />
+    <Folder Include="Resources\" />
+  </ItemGroup>
+
 </Project>

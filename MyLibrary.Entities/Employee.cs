@@ -26,6 +26,7 @@ namespace MyLibrary.Entities
 
         [Column("email")]
         [StringLength(255)]
+        [Index("IX_UniqueKeyInt", IsUnique = true, Order = 1)]
         public string Email { get; set; }
 
         [Column("address")]
