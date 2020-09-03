@@ -19,7 +19,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyLibrary.Repositories", "M
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyLibrary.Domain", "MyLibrary.Domain\MyLibrary.Domain.csproj", "{473A37A4-2F34-4972-AE78-D48D8B18358B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyLibrary.ViewModels", "MyLibrary.ViewModels\MyLibrary.ViewModels.csproj", "{8F3E5162-0A03-4691-9B10-921631445427}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyLibrary.ViewModels", "MyLibrary.ViewModels\MyLibrary.ViewModels.csproj", "{8F3E5162-0A03-4691-9B10-921631445427}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

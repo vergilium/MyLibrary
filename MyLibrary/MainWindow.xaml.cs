@@ -26,10 +26,6 @@ namespace MyLibrary
     {
         public MainWindow()
         {
-            
-
-            //context.Faculties.Add(new Faculty { Name = "F2" });
-            //context.SaveChanges();
 
             InitializeComponent();
         }

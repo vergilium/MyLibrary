@@ -7,6 +7,34 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Properties\**" />
+    <EmbeddedResource Remove="Properties\**" />
+    <None Remove="Properties\**" />
+    <Page Remove="Properties\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Media\Icon\books_16.ico" />
+    <None Remove="Media\png\ic_add_circle_16.png" />
+    <None Remove="Media\png\ic_add_circle_18.png" />
+    <None Remove="Media\png\ic_add_user_48.png" />
+    <None Remove="Media\png\ic_angry_48.png" />
+    <None Remove="Media\png\ic_edit_book_48.png" />
+    <None Remove="Media\png\ic_rem_user_48.png" />
+    <None Remove="Media\png\ic_users_48.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Media\Icon\books_16.ico" />
+    <Resource Include="Media\png\ic_add_circle_16.png" />
+    <Resource Include="Media\png\ic_add_user_48.png" />
+    <Resource Include="Media\png\ic_angry_48.png" />
+    <Resource Include="Media\png\ic_edit_book_48.png" />
+    <Resource Include="Media\png\ic_rem_user_48.png" />
+    <Resource Include="Media\png\ic_users_48.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.6" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.6" />
   </ItemGroup>
@@ -22,8 +50,6 @@
 
   <ItemGroup>
     <Folder Include="Media\icon\" />
-    <Folder Include="Properties\" />
-    <Folder Include="Resources\" />
   </ItemGroup>
 
 </Project>
