@@ -2,9 +2,9 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:local="clr-namespace:MyLibrary">
 
-        <!--Styles for controls in a toolbar.-->
+        <!--#region Styles for controls in a toolbar.-->
         <Style x:Key="{x:Static ToolBar.SeparatorStyleKey}" TargetType="Separator">
-            <Setter Property="Background" Value="DarkGray"/>
+        <Setter Property="Background" Value="DarkGray"/>
             <Setter Property="Width" Value="2"/>
         </Style>
 
@@ -53,6 +53,7 @@
             <Setter Property="HorizontalAlignment" Value="Center"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
         </Style>
+        <!--#endregion-->
     
         <!--*********Styles for controls that are not in a toolbar.*********-->
         <Style TargetType="Separator">
@@ -107,10 +108,8 @@
 
     <Style x:Key="{x:Type TreeView}"
        TargetType="TreeView">
-        <Setter Property="OverridesDefaultStyle"
-          Value="True" />
-        <Setter Property="SnapsToDevicePixels"
-          Value="True" />
+        <Setter Property="OverridesDefaultStyle" Value="True" />
+        <Setter Property="SnapsToDevicePixels" Value="True" />
         <Setter Property="ScrollViewer.HorizontalScrollBarVisibility"
           Value="Auto" />
         <Setter Property="ScrollViewer.VerticalScrollBarVisibility"
