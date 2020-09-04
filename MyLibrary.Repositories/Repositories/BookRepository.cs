@@ -8,5 +8,6 @@ namespace MyLibrary.Repositories
         public BookRepository(DbContext context) : base(context)
         {
         }
-    }
+
+	}
 }

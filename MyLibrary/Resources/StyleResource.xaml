@@ -89,12 +89,11 @@
         </Style>
 
         <Style TargetType="TextBox">
-            <Setter Property="Background" Value="DarkBlue"/>
-            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="Foreground" Value="Black"/>
             <Setter Property="FontSize" Value="14"/>
-            <Setter Property="FontStyle" Value="Italic"/>
-            <Setter Property="HorizontalAlignment" Value="Center"/>
-            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="FontStyle" Value="Normal"/>
+            
             <Setter Property="Width" Value="75"/>
         </Style>
 
@@ -105,5 +104,39 @@
         <Setter Property="HorizontalAlignment" Value="Center"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
     </Style>
+
+    <Style x:Key="{x:Type TreeView}"
+       TargetType="TreeView">
+        <Setter Property="OverridesDefaultStyle"
+          Value="True" />
+        <Setter Property="SnapsToDevicePixels"
+          Value="True" />
+        <Setter Property="ScrollViewer.HorizontalScrollBarVisibility"
+          Value="Auto" />
+        <Setter Property="ScrollViewer.VerticalScrollBarVisibility"
+          Value="Auto" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="TreeView">
+                    <Border Name="Border"
+                CornerRadius="1"
+                BorderThickness="1">
+                        <Border.BorderBrush>
+                            <SolidColorBrush Color="Black" />
+                        </Border.BorderBrush>
+                        <Border.Background>
+                            <SolidColorBrush Color="GhostWhite" />
+                        </Border.Background>
+                        <ScrollViewer Focusable="False"
+                        CanContentScroll="False"
+                        Padding="4">
+                            <ItemsPresenter />
+                        </ScrollViewer>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
 
 </ResourceDictionary>

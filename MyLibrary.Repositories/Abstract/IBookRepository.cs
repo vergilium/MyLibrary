@@ -3,8 +3,6 @@ using MyLibrary.Domain;
 
 namespace MyLibrary.Repositories
 {
-    public interface IBookRepository : IDbRepository<Book>
-    {
-
-    }
+	public interface IBookRepository : IDbRepository<Book> {
+	}
 }

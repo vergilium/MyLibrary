@@ -6,10 +6,19 @@
         xmlns:local="clr-namespace:MyLibrary"
         mc:Ignorable="d"
         Title="iLibrary" Height="800" Width="1024" Icon="/Media/icon/books_16.ico" >
-
+    
+    <!--#region Resource definitions-->
     <Window.Resources>
-        <ResourceDictionary Source="Resources\StyleResource.xaml"/>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary x:Name="Style" Source="Resources\StyleResource.xaml"/>
+                <ResourceDictionary x:Name="Clolor" Source="Resources\ColorsStyleResource.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Window.Resources>
+    <!--#endregion-->
+    
+    
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="25px"></RowDefinition>
@@ -23,14 +32,48 @@
                 <ColumnDefinition Width="5px"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
+            
             <GridSplitter VerticalAlignment="Stretch" Width="5" Grid.Column="1" ShowsPreview="False"/>
-            <TreeView>
-                
+            
+            <!--#region -=Theme TreeView=- -->
+            <TreeView Grid.Column="0" x:Name="trv_CategoriesThemes">
+                <TextBox Text="Category and Themes" VerticalAlignment="Top" HorizontalAlignment="Left" Width="Auto"/>
+                <TreeView.ItemTemplate>
+                    <HierarchicalDataTemplate ItemsSource="{Binding Path=Category}">
+                        <TextBlock Text="{Binding Path=CategoryName}"/>
+                        <HierarchicalDataTemplate.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Path=ThemeName}"/>
+                            </DataTemplate>
+                        </HierarchicalDataTemplate.ItemTemplate>
+                    </HierarchicalDataTemplate>
+                </TreeView.ItemTemplate>
             </TreeView>
-            <DataGrid Grid.Column="2">
-                
+            <!--#endregion-->
+            
+            <!--#region -=Books Data grid=- -->
+            <DataGrid x:Name="dg_books" Grid.Column="2" AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="id" Binding="{Binding Path=Id}" IsReadOnly="True" Width="0.2*" MaxWidth="100"/>
+                    <DataGridTextColumn Header="Book name" Binding="{Binding Path=BookName}" IsReadOnly="True" Width="*" MaxWidth="150"/>
+                    <DataGridTextColumn Header="Press" Binding="{Binding Path=PressName}" IsReadOnly="True" Width="0.3*" MaxWidth="150"/>
+                    <DataGridTextColumn Header="Category" Binding="{Binding Path=CategoryName}" IsReadOnly="True" Width="0.3*" MaxWidth="100"/>
+                    <DataGridTextColumn Header="Theme" Binding="{Binding Path=ThemeName}" IsReadOnly="True" Width="0.3*" MaxWidth="100"/>
+                    <DataGridTemplateColumn Header="Authors" SortMemberPath="Name" Width="0.3*" MaxWidth="150">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <ComboBox x:Name="cb_dgAuthors" ItemsSource="{Binding Path=Authors}" IsEditable="False" IsReadOnly="True" 
+                                          DisplayMemberPath="FirstName + LastName"
+                                          SelectedValue="{Binding Path=Authors}"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
             </DataGrid>
         </Grid>
+        <!--#endregion-->
+        
+        <!--#region -=Top Menu=- -->
         <Menu VerticalAlignment="Top" Background="LightCyan" Grid.Row="0" Height="25">
             <MenuItem Header="File">
                 <MenuItem Header="Exit"/>
@@ -46,7 +89,9 @@
             </MenuItem>
             <MenuItem Header="Help"></MenuItem>
         </Menu>
+        <!--#endregion-->
 
+        <!--#region  -=ToolBar Panel=- -->
         <ToolBarPanel Grid.Row="1">
             <ToolBarTray Height="48" Width="Auto">
                 <ToolBar HorizontalAlignment="Left" Height="48" VerticalAlignment="Stretch" Width="220">
@@ -73,9 +118,7 @@
             </ToolBarTray>
 
         </ToolBarPanel>
-
-
-
+        <!--#endregion-->
 
     </Grid>
 </Window>

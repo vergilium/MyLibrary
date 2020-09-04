@@ -16,6 +16,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using MyLibrary.BLL;
+using MyLibrary.ViewModels;
 
 namespace MyLibrary
 {
@@ -26,8 +28,22 @@ namespace MyLibrary
     {
         public MainWindow()
         {
+            //Unit.ThemeRepository.AddItemAsync(new Theme { Name = "C#" });
+            //Unit.CategoryRepository.AddItemAsync(new Category { Name = "Programming" });
+            //Unit.PressRepository.AddItemAsync(new Press { Name = "ITStep" });
+            //Unit.AuthorRepository.AddItemAsync(new Author { FirstName = "Olexandr", LastName = "Kobelchak" });
+            //Unit.BookRepository.AddItemAsync(new Book {
+            //    Name = "WPF",
+            //    CategoryId = Unit.CategoryRepository.AllItems.Where(n => n.Name == "Programming").FirstOrDefault().Id,
+            //    ThemeId = Unit.ThemeRepository.AllItems.Where(t => t.Name == "C#").FirstOrDefault().Id,
+            //    PressId = Unit.PressRepository.AllItems.Where(p => p.Name == "ITStep").FirstOrDefault().Id,
+            //    BookAuthor = null
+            //}) ;
 
+            //var Books = BookModel.GetAllBookVM();
             InitializeComponent();
+
+           // dg_books.ItemsSource = Books;
         }
     }
 }

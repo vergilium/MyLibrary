@@ -12,7 +12,7 @@ namespace MyLibrary.BLL
     {
         static Unit()
         {
-            Context = new MyAppDbContext(
+            _context = new MyAppDbContext(
                 new DbContextOptionsBuilder<MyAppDbContext>()
                     .UseSqlServer(new SqlConnectionStringBuilder
                     {
@@ -22,25 +22,25 @@ namespace MyLibrary.BLL
                     }.ConnectionString)
                     .Options);
 
-            Context.Database.EnsureDeleted();
-            Context.Database.EnsureCreated();
+            _context.Database.EnsureDeleted();
+            _context.Database.EnsureCreated();
 
-            AuthorRepository = new AuthorRepository(Context);
-            BookRepository = new BookRepository(Context);
-            CategoryRepository = new CategoryRepository(Context);
-            DepartmentRepository = new DepartmentRepository(Context);
-            ECardRepository = new ECardsRepository(Context);
-            EmployeeRepository = new EmploeeRepository(Context);
-            FacultyRepository = new FacultyRepository(Context);
-            GroupRepository = new GroupRepository(Context);
-            LibrarianRepository = new LibrarianRepository(Context);
-            PressRepository = new PressRepository(Context);
-            SCardRepository = new SCardsRepository(Context);
-            StudentRepository = new StudentRepository(Context);
-            ThemeRepository = new ThemeRepository(Context);
+            AuthorRepository = new AuthorRepository(_context);
+            BookRepository = new BookRepository(_context);
+            CategoryRepository = new CategoryRepository(_context);
+            DepartmentRepository = new DepartmentRepository(_context);
+            ECardRepository = new ECardsRepository(_context);
+            EmployeeRepository = new EmploeeRepository(_context);
+            FacultyRepository = new FacultyRepository(_context);
+            GroupRepository = new GroupRepository(_context);
+            LibrarianRepository = new LibrarianRepository(_context);
+            PressRepository = new PressRepository(_context);
+            SCardRepository = new SCardsRepository(_context);
+            StudentRepository = new StudentRepository(_context);
+            ThemeRepository = new ThemeRepository(_context);
         }
 
-        public static MyAppDbContext Context { get; }
+        public static MyAppDbContext _context { get; }
         public static IAuthorRepository AuthorRepository { get; }
         public static IBookRepository BookRepository { get; }
         public static ICategoryRepository CategoryRepository { get; }
