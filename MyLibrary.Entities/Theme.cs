@@ -1,6 +1,7 @@
 ﻿using MyLibrary.Domain;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
@@ -15,7 +16,14 @@ namespace MyLibrary.Entities
         [Index("IX_UniqueKeyInt", IsUnique = true, Order = 1)]
         public string Name { get; set; }
 
+        [Column("parrentId")]
+        [DefaultValue(null)]
+        public Guid? ParrentId { get; set; }
+
         public List<Book> Books { get; set; }
+
+        public Theme Parrent { get; set; }
+
     }
 
 }

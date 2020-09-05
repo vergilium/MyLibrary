@@ -24,11 +24,6 @@ namespace MyLibrary.Entities
         [Column("pressId")]
         public Guid PressId { get; set; }
 
-        public Category Category { get; set; }
-
-        [Column("categoryId")]
-        public Guid CategoryId { get; set; }
-
         public List<BookAuthor> BookAuthor { get; set; }
     }
 

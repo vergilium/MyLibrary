@@ -13,7 +13,6 @@ namespace MyLibrary.Context
         public DbSet<Group> Groups { get; set; }
         public DbSet<Student> Students { get; set; }
         public DbSet<Theme> Themes { get; set; }
-        public DbSet<Category> Categories { get; set; }
         public DbSet<Press> Press { get; set; }
         public DbSet<Book> Books { get; set; }
         public DbSet<Author> Authors { get; set; }
@@ -61,11 +60,6 @@ namespace MyLibrary.Context
                .HasOne(p => p.Theme)
                .WithMany(b => b.Books)
                .HasForeignKey(b => b.ThemeId);
-
-            modelBuilder.Entity<Book>()
-              .HasOne(p => p.Category)
-              .WithMany(b => b.Books)
-              .HasForeignKey(b => b.CategoryId);
 			#endregion
 
 			#region Fluent for BookAuthor table
@@ -83,13 +77,14 @@ namespace MyLibrary.Context
               .HasForeignKey(b => b.AuthorId);
             #endregion
 
-            #region Fluent for Category table
-            modelBuilder.Entity<Category>()
-                .HasMany(b => b.Books)
-                .WithOne(c => c.Category)
-                .HasForeignKey(c => c.CategoryId);
 
+            #region Fluent for Theme Tables
+            modelBuilder.Entity<Theme>()
+                .HasOne(p => p.Parrent)
+                .WithMany();
 			#endregion
+
+
 
 
 		}

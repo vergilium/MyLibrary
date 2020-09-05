@@ -36,14 +36,13 @@
             <GridSplitter VerticalAlignment="Stretch" Width="5" Grid.Column="1" ShowsPreview="False"/>
             
             <!--#region -=Theme TreeView=- -->
-            <TreeView Grid.Column="0" x:Name="trv_CategoriesThemes">
-                <TextBox Text="Category and Themes" VerticalAlignment="Top" HorizontalAlignment="Left" Width="Auto"/>
+            <TreeView Grid.Column="0" Name="trv_CategoriesThemes">
                 <TreeView.ItemTemplate>
-                    <HierarchicalDataTemplate ItemsSource="{Binding Path=Category}">
-                        <TextBlock Text="{Binding Path=CategoryName}"/>
+                    <HierarchicalDataTemplate ItemsSource="{Binding Path=Categories}">
+                        <TextBlock Text="{Binding Name}" />
                         <HierarchicalDataTemplate.ItemTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding Path=ThemeName}"/>
+                                <TextBlock Text="{Binding themes}" />
                             </DataTemplate>
                         </HierarchicalDataTemplate.ItemTemplate>
                     </HierarchicalDataTemplate>

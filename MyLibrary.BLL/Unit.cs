@@ -22,12 +22,11 @@ namespace MyLibrary.BLL
                     }.ConnectionString)
                     .Options);
 
-            _context.Database.EnsureDeleted();
+            //_context.Database.EnsureDeleted();
             _context.Database.EnsureCreated();
 
             AuthorRepository = new AuthorRepository(_context);
             BookRepository = new BookRepository(_context);
-            CategoryRepository = new CategoryRepository(_context);
             DepartmentRepository = new DepartmentRepository(_context);
             ECardRepository = new ECardsRepository(_context);
             EmployeeRepository = new EmploeeRepository(_context);
@@ -43,7 +42,6 @@ namespace MyLibrary.BLL
         public static MyAppDbContext _context { get; }
         public static IAuthorRepository AuthorRepository { get; }
         public static IBookRepository BookRepository { get; }
-        public static ICategoryRepository CategoryRepository { get; }
         public static IDepartmentRepository DepartmentRepository { get; }
         public static IECardRepository ECardRepository { get; }
         public static IEmployeeRepository EmployeeRepository { get; }

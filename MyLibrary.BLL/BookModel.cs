@@ -12,23 +12,19 @@ namespace MyLibrary.BLL
     {
         public Guid Id { get; set; }
         public Guid ThemeId { get; set; }
-        public Guid CategoryId { get; set; }
         public Guid PressId { get; set; }
         public string BookName { get; set; }
         public string PressName { get; set; }
-        public string CategoryName { get; set; }
         public string ThemeName { get; set; }
         public List<AuthorModel> Authors { get; }
 
         public BookModel(Book book)
         {
             Id = book.Id;
-            CategoryId = book.CategoryId;
             PressId = book.PressId;
             ThemeId = book.ThemeId;
             BookName = book.Name;
             PressName = book.Press.Name;
-            CategoryName = book.Category.Name;
             ThemeName = book.Theme.Name;
             Authors = book.BookAuthor
                 .Select(ba => new AuthorModel
@@ -44,7 +40,6 @@ namespace MyLibrary.BLL
             return new BookVM
             {
                 BookName = model.BookName,
-                CategoryName = model.CategoryName,
                 ThemeName = model.ThemeName,
                 PressName = model.PressName,
                 Authors = model.Authors.Select(
@@ -61,7 +56,6 @@ namespace MyLibrary.BLL
             return Unit.BookRepository.AllItems
                 .Include(b => b.Theme)
                 .Include(b=>b.Press)
-                .Include(b=>b.Category)
                 .Include(b=>b.BookAuthor).ThenInclude(ba=>ba.Author)
                 .Select(b => new BookModel(b))
                 .ToList();
@@ -71,7 +65,6 @@ namespace MyLibrary.BLL
             return Unit.BookRepository.AllItems
                 .Include(b => b.Theme)
                 .Include(b => b.Press)
-                .Include(b => b.Category)
                 .Include(b => b.BookAuthor).ThenInclude(ba => ba.Author)
                 .Select(b => (BookVM) new BookModel(b))
                 .ToList();
